@@ -3,8 +3,14 @@ class Solution:
         if len(nums) == 1:
             return nums[0]
 
-        newnums = set(nums)
+        dic = {}
 
-        for i in newnums:
-            if nums.count(i) == 1:
+        for i in nums:
+            if i not in dic:
+                dic[i] = 1
+            else:
+                dic[i] += 1
+
+        for i in dic:
+            if dic[i] == 1:
                 return i
