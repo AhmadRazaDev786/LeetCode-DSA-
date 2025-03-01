@@ -1,12 +1,13 @@
 class Solution:
     def applyOperations(self, nums: List[int]) -> List[int]:
-        left = 0
-        for right in range(1,len(nums)):
-            if nums[left] == nums[right]:
-                nums[left], nums[right] = nums[left]*2, 0
-            left+=1
-        for i in nums:
-            if i == 0:
-                nums.remove(i)
-                nums.append(i)
+        for i in range(len(nums)-1):
+            if nums[i] == nums[i+1]:
+                nums[i] *= 2
+                nums[i+1] = 0
+        non_zero = 0
+
+        for j in range(len(nums)):
+            if nums[j] != 0:
+                nums[non_zero], nums[j] = nums[j], nums[non_zero]
+                non_zero +=1
         return nums
