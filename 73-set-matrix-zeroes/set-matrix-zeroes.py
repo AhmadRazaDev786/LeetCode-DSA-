@@ -5,30 +5,19 @@ class Solution:
         """
         n = len(matrix)
         m = len(matrix[0])
-        # listi = []
-        # for i in range(n):
-        #     for j in range(m):
-        #         if matrix[i][j] == 0:
-        #             listi.append((i,j))
-        
-        # for i,j in listi:
-        #     for k in range(m):
-        #         matrix[i][k] = 0
-        #     for k in range(n):
-        #         matrix[k][j]= 0
+        col = [0]*m
+        row = [0]*n
 
         for i in range(n):
             for j in range(m):
                 if matrix[i][j] == 0:
-                    for k in range(m):
-                        if matrix[i][k] != 0:
-                            matrix[i][k] = 0.1
-                    for k in range(n):
-                        if matrix[k][j] !=0:
-                            matrix[k][j] = 0.1
+                    col[j] = 0.1
+                    row[i] = 0.1
+
         for i in range(n):
             for j in range(m):
-                if matrix[i][j] == 0.1:
+                if col[j] or row[i] == 0.1:
                     matrix[i][j] = 0
+        
 
         
