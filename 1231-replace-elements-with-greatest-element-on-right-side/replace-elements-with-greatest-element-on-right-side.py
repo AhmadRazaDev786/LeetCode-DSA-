@@ -4,17 +4,9 @@ class Solution(object):
         :type arr: List[int]
         :rtype: List[int]
         """
-        if len(arr)>1:
-            maxi = max(arr[1:])
-        else: 
-            maxi = -1
-        
-        for i in range(len(arr)-1):
-            if arr[i]>= maxi:
-                maxi = max(arr[i+1:])
-                arr[i] = maxi
-            else:
-                arr[i] = maxi
-
-        arr[-1] = -1
+        maxi = -1
+        for i in range(len(arr)-1, -1, -1):
+            temp = arr[i]
+            arr[i] = maxi
+            maxi = max(temp, arr[i])
         return arr
