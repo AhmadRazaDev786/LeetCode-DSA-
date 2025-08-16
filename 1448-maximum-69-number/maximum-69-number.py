@@ -1,10 +1,10 @@
 class Solution:
     def maximum69Number (self, num: int) -> int:
-        numi = list(map(int, str(num)))
+        digits = list(str(num))
 
-        for i in range(len(numi)):
-            if numi[i] == 6:
-                numi[i] = 9
+        for i, digit in enumerate(digits):
+            if digit == '6':
+                digits[i] = '9'
                 break
-        num = int("".join(map(str, numi)))
-        return num
+
+        return int("".join(digits))
